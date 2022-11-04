@@ -1,0 +1,170 @@
+#waarden inlezen
+MeetwaardenCSV <- read.csv("Meetwaarden.csv")
+
+#Waarden boven 40 verwijderen
+MeetwaardenCSV[MeetwaardenCSV>40]=NA
+
+#gemiddelde van de 2 testen nemen
+a = 1
+repeat {
+  print(a)
+  if (a == 1){MeetwaardenCSV$cirkel_chips = (rowSums(MeetwaardenCSV[,c(a,a+1)]))/2
+  MeetwaardenCSV$cirkel_chips[MeetwaardenCSV$cirkel_chips>30]=NA}
+  
+  if (a == 3){MeetwaardenCSV$cirkel_ldpe = (rowSums(MeetwaardenCSV[,c(a,a+1)]))/2
+  MeetwaardenCSV$cirkel_ldpe[MeetwaardenCSV$cirkel_ldpe>30]=NA}
+  
+  if (a == 5){MeetwaardenCSV$cirkel_witte_zak = (rowSums(MeetwaardenCSV[,c(a,a+1)]))/2
+  MeetwaardenCSV$cirkel_witte_zak[MeetwaardenCSV$cirkel_witte_zak>30]=NA}
+  
+  if (a == 7){MeetwaardenCSV$driehoek_witte_zak = (rowSums(MeetwaardenCSV[,c(a,a+1)]))/2
+  MeetwaardenCSV$driehoek_witte_zak[MeetwaardenCSV$driehoek_witte_zak>30]=NA}
+  
+  if (a == 9){MeetwaardenCSV$driehoek_ldpe = (rowSums(MeetwaardenCSV[,c(a,a+1)]))/2
+  MeetwaardenCSV$driehoek_ldpe[MeetwaardenCSV$driehoek_ldpe>30]=NA}
+  
+  if (a == 11){MeetwaardenCSV$driehoek_chips = (rowSums(MeetwaardenCSV[,c(a,a+1)]))/2
+  MeetwaardenCSV$driehoek_chips[MeetwaardenCSV$driehoek_chips>30]=NA}
+  
+  if (a == 13){MeetwaardenCSV$vierkant_chips = (rowSums(MeetwaardenCSV[,c(a,a+1)]))/2
+  MeetwaardenCSV$vierkant_chips[MeetwaardenCSV$vierkant_chips>30]=NA}
+  
+  if (a == 15){MeetwaardenCSV$vierkant_ldpe = (rowSums(MeetwaardenCSV[,c(a,a+1)]))/2
+  MeetwaardenCSV$vierkant_ldpe[MeetwaardenCSV$vierkant_ldpe>30]=NA}
+  
+  if (a == 17){MeetwaardenCSV$vierkant_witte_zak = (rowSums(MeetwaardenCSV[,c(a,a+1)]))/2
+  MeetwaardenCSV$vierkant_witte_zak[MeetwaardenCSV$vierkant_witte_zak>30]=NA}
+  a = a + 2
+  if (a > 18){
+    a=1
+    break
+  }
+}
+
+#Max van de gemiddelde waardes nemen
+
+MaxCirkelChips = max(MeetwaardenCSV$cirkel_chips, na.rm = TRUE)
+MaxCirkelLDPE = max(MeetwaardenCSV$cirkel_ldpe, na.rm = TRUE)
+MaxCirkelWitteZak = max(MeetwaardenCSV$cirkel_witte_zak, na.rm = TRUE)
+MaxDriehoekChips = max(MeetwaardenCSV$driehoek_chips, na.rm = TRUE)
+MaxDriehoekLDPE = max(MeetwaardenCSV$driehoek_ldpe, na.rm = TRUE)
+MaxDriehoekWitteZak = max(MeetwaardenCSV$driehoek_witte_zak, na.rm = TRUE)
+MaxVierkantChips = max(MeetwaardenCSV$vierkant_chips, na.rm = TRUE)
+MaxVierkantLDPE = max(MeetwaardenCSV$vierkant_ldpe, na.rm = TRUE)
+MaxVierkantWitteZak = max(MeetwaardenCSV$vierkant_witte_zak, na.rm = TRUE)
+
+#Max van test 1
+
+MaxCirkelChips1 = max(MeetwaardenCSV$Cirkel_11_chips, na.rm = TRUE)
+MaxCirkelLDPE1 = max(MeetwaardenCSV$Cirkel_11_LDPE, na.rm = TRUE)
+MaxCirkelWitteZak1 = max(MeetwaardenCSV$Cirkel_11_witte_zak, na.rm = TRUE)
+MaxDriehoekChips1 = max(MeetwaardenCSV$Driehoek_11_chips, na.rm = TRUE)
+MaxDriehoekLDPE1 = max(MeetwaardenCSV$Driehoek_11_LDPE, na.rm = TRUE)
+MaxDriehoekWitteZak1 = max(MeetwaardenCSV$Driehoek_11_witte_zak, na.rm = TRUE)
+MaxVierkantChips1 = max(MeetwaardenCSV$Vierkant_11_chips, na.rm = TRUE)
+MaxVierkantLDPE1 = max(MeetwaardenCSV$Vierkant_11_LDPE, na.rm = TRUE)
+MaxVierkantWitteZak1 = max(MeetwaardenCSV$Vierkant_11_witte_zak, na.rm = TRUE)
+
+#Max van test 2
+
+MaxCirkelChips2 = max(MeetwaardenCSV$Cirkel_12_chips, na.rm = TRUE)
+MaxCirkelLDPE2 = max(MeetwaardenCSV$Cirkel_12_LDPE, na.rm = TRUE)
+MaxCirkelWitteZak2 = max(MeetwaardenCSV$Cirkel_12_witte_zak, na.rm = TRUE)
+MaxDriehoekChips2 = max(MeetwaardenCSV$Driehoek_12_chips, na.rm = TRUE)
+MaxDriehoekLDPE2 = max(MeetwaardenCSV$Driehoek_12_LDPE, na.rm = TRUE)
+MaxDriehoekWitteZak2 = max(MeetwaardenCSV$Driehoek_12_witte_zak, na.rm = TRUE)
+MaxVierkantChips2 = max(MeetwaardenCSV$Vierkant_12_chips, na.rm = TRUE)
+MaxVierkantLDPE2 = max(MeetwaardenCSV$Vierkant_12_LDPE, na.rm = TRUE)
+MaxVierkantWitteZak2 = max(MeetwaardenCSV$Vierkant_12_witte_zak, na.rm = TRUE)
+
+
+#Maxwaardes in een aparte tabel steken
+Druk_In_PSI_Test1 = c(MaxCirkelChips1,MaxCirkelLDPE1,MaxCirkelWitteZak1,MaxDriehoekChips1,MaxDriehoekLDPE1,MaxDriehoekWitteZak1,MaxVierkantChips1,MaxVierkantLDPE1,MaxVierkantWitteZak1)
+Druk_In_PSI_Test2 = c(MaxCirkelChips2,MaxCirkelLDPE2,MaxCirkelWitteZak2,MaxDriehoekChips2,MaxDriehoekLDPE2,MaxDriehoekWitteZak2,MaxVierkantChips2,MaxVierkantLDPE2,MaxVierkantWitteZak2)
+Druk_In_PSI_Gemiddeld = c(MaxCirkelChips,MaxCirkelLDPE,MaxCirkelWitteZak,MaxDriehoekChips,MaxDriehoekLDPE,MaxDriehoekWitteZak,MaxVierkantChips,MaxVierkantLDPE,MaxVierkantWitteZak)
+Vorm = c("Cirkel","Cirkel","Cirkel","Driehoek","Driehoek","Driehoek","Vierkant","Vierkant","Vierkant")
+Materiaal = c("Chips","LDPE","WitteZak","Chips","LDPE","WitteZak","Chips","LDPE","WitteZak")
+
+Maxtabel<-data.frame(Vorm,Materiaal,Druk_In_PSI_Test1,Druk_In_PSI_Test2,Druk_In_PSI_Gemiddeld)
+Maxtabel$VormEnMateriaal=paste(Maxtabel$Vorm,Maxtabel$Materiaal)
+
+#Staafdiagram maken voor gemiddelde waardes
+
+library(ggplot2)
+ggplot(data=Maxtabel, aes(fill=Materiaal,y=Druk_In_PSI_Gemiddeld, x=Vorm)) +
+  geom_bar(position="dodge", stat="identity") + coord_flip() + theme(legend.position = "top") +
+  geom_text(position = position_dodge(width= 0.9), aes(y=Druk_In_PSI_Gemiddeld, label=Druk_In_PSI_Gemiddeld, hjust=1.2), angle=0) +
+  ggtitle("Maximale druk per vorm en materiaal")
+
+#Maxtabel voor de statistische testen
+
+Druk_In_PSI_Testen = c(MaxCirkelChips1,MaxCirkelChips2,MaxCirkelLDPE1,MaxCirkelLDPE2,MaxCirkelWitteZak1,MaxCirkelWitteZak2,MaxDriehoekChips1,MaxDriehoekChips2,MaxDriehoekLDPE1,MaxDriehoekLDPE2,MaxDriehoekWitteZak1,MaxDriehoekWitteZak2,MaxVierkantChips1,MaxVierkantChips2,MaxVierkantLDPE1,MaxVierkantLDPE2,MaxVierkantWitteZak1,MaxVierkantWitteZak2)
+Vorm_Testen = c("Cirkel","Cirkel","Cirkel","Cirkel","Cirkel","Cirkel","Driehoek","Driehoek","Driehoek","Driehoek","Driehoek","Driehoek","Vierkant","Vierkant","Vierkant","Vierkant","Vierkant","Vierkant")
+Materiaal_Testen = c("Chips","Chips","LDPE","LDPE","WitteZak","WitteZak","Chips","Chips","LDPE","LDPE","WitteZak","WitteZak","Chips","Chips","LDPE","LDPE","WitteZak","WitteZak")
+Maxtabel_Testen<-data.frame(Vorm_Testen,Materiaal_Testen,Druk_In_PSI_Testen)
+
+#kolom per vorm
+#Cirkel
+Maxtabel_Testen[1:6,] 
+#Driehoek
+Maxtabel_Testen[7:12,]
+#Vierkant
+Maxtabel_Testen[13:18,]
+
+#Statistische testen per vorm
+
+#shapiro
+#Cirkel
+shapiro.test(Maxtabel_Testen[1:6,]$Druk_In_PSI_Testen)
+#Driehoek
+shapiro.test(Maxtabel_Testen[7:12,]$Druk_In_PSI_Testen)
+#Vierkant
+shapiro.test(Maxtabel_Testen[13:18,]$Druk_In_PSI_Testen)
+
+#Kolmogorov
+#Cirkel
+ks.test(Maxtabel_Testen[1:6,]$Druk_In_PSI_Testen, "pnorm")
+#Driehoek
+ks.test(Maxtabel_Testen[7:12,]$Druk_In_PSI_Testen, "pnorm")
+#Vierkant
+ks.test(Maxtabel_Testen[13:18,]$Druk_In_PSI_Testen, "pnorm")
+
+#Kruskal
+kruskal.test(Maxtabel_Testen$Druk_In_PSI_Testen ~ as.factor(Maxtabel_Testen$Vorm_Testen), data = Maxtabel_Testen)
+
+#boxplot
+ggplot(Maxtabel_Testen, aes(x= Vorm_Testen, y=Druk_In_PSI_Testen)) + geom_boxplot() + coord_flip() +
+  ggtitle("Boxplot_per_vorm")
+
+#kolom per materiaal
+#Chips
+Maxtabel_Testen[c(1,2,7,8,13,14),]
+#LDPE
+Maxtabel_Testen[c(3,4,9,10,15,16),]
+#Witte zak
+Maxtabel_Testen[c(5,6,11,12,17,18),]
+
+#Statistische testen per materiaal
+
+#Shapiro
+#Chips
+shapiro.test(Maxtabel_Testen[c(1,2,7,8,13,14),]$Druk_In_PSI_Testen)
+#LDPE
+shapiro.test(Maxtabel_Testen[c(3,4,9,10,15,16),]$Druk_In_PSI_Testen)
+#Witte zak
+shapiro.test(Maxtabel_Testen[c(5,6,11,12,17,18),]$Druk_In_PSI_Testen)
+
+#Kolmogorov
+#Chips
+ks.test(Maxtabel_Testen[c(1,2,7,8,13,14),]$Druk_In_PSI_Testen, "pnorm")
+#LDPE
+ks.test(Maxtabel_Testen[c(3,4,9,10,15,16),]$Druk_In_PSI_Testen, "pnorm")
+#Witte zak
+ks.test(Maxtabel_Testen[c(5,6,11,12,17,18),]$Druk_In_PSI_Testen, "pnorm")
+
+#Kruskal
+kruskal.test(Maxtabel_Testen$Druk_In_PSI_Testen ~ as.factor(Maxtabel_Testen$Materiaal_Testen), data = Maxtabel_Testen)
+
+#Boxplot
+ggplot(Maxtabel_Testen, aes(x= Materiaal_Testen, y=Druk_In_PSI_Testen)) + geom_boxplot() + coord_flip() +
+  ggtitle("Boxplot_per_materiaal")
